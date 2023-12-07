@@ -6,7 +6,7 @@ pipeline {
     stages{
         stage('Build Maven'){
             steps{
-                checkout changelog: false, poll: false, scm: scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[credentialsId: '9ca99b5c-f863-4e52-9b09-fccd7db2da95', url: 'https://github.com/prabhuitz7120/docker']])
+                git changelog: false, poll: false, url: 'https://github.com/prabhuitz7120/docker.git'
                 sh 'mvn clean install'
             }
         }
